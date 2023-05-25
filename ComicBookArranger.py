@@ -10,9 +10,12 @@ import os
 import sys
 
 class ComicBookArranger:
-    def __init__(self, archive_name):
+    def __init__(self):
         return None
     
+    def run(self):
+        print("Hello World!")
+        
 if __name__ == "__main__":
-    cv = ComicViewer(sys.argv[1])
+    cv = ComicBookArranger()
     cv.run()
