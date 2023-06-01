@@ -1,0 +1,5 @@
+---
+# Properties file for CBArranger
+
+tempdir: "/var/tmp/cbarranger/" # where to do temporary work on CBR files
+archivetype: "CBR"  # what type of file to output
