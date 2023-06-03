@@ -5,16 +5,16 @@ def read_config(file_path):
         config = yaml.safe_load(file)
     return config
 
-# Example usage
+# get CBRArranger config file
 file_path = 'cbrProperties.yaml'
 config = read_config(file_path)
 
 # Access configuration properties
-property1 = config['property1']
-property2 = config['property2']
-# ...
+tempdirStr = config['tempdir']
+archivedirStr = config['archivetype']
+
 
 # Print the configuration properties
-print(f"Property 1: {property1}")
-print(f"Property 2: {property2}")
-# ...
+print(f"Property 1: {tempdirStr}")
+print(f"Property 2: {archivedirStr}")
+
