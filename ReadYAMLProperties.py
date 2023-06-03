@@ -6,7 +6,7 @@ def read_config(file_path):
     return config
 
 # Example usage
-file_path = 'config.yaml'
+file_path = 'cbrProperties.yaml'
 config = read_config(file_path)
 
 # Access configuration properties
