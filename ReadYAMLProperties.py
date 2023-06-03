@@ -1,20 +1,34 @@
 import yaml
 
-def read_config(file_path):
-    with open(file_path, 'r') as file:
-        config = yaml.safe_load(file)
-    return config
+# Class to store information about user preference
 
-# get CBRArranger config file
-file_path = 'cbrProperties.yaml'
-config = read_config(file_path)
-
-# Access configuration properties
-tempdirStr = config['tempdir']
-archivedirStr = config['archivetype']
+class Configuration:
+    # get CBRArranger config file
+    file_path = 'cbrProperties.yaml'
 
 
-# Print the configuration properties
-print(f"Property 1: {tempdirStr}")
-print(f"Property 2: {archivedirStr}")
 
+
+    # Access configuration properties
+    def read_config(file_path):
+        with open(file_path, 'r') as file:
+            config = yaml.safe_load(file)
+        tempdirStr = config['tempdir']
+        archivedirStr = config['archivetype']
+        return config
+    
+    # Return a configuration value
+    def get_property(property_name):
+        match property_name:
+            case "tempdirStr":
+                return self.tempdirStr
+            case "archivedirStr":
+                return self.archivedirStr
+            
+    def __init__(self) -> None:
+        self.read_config(self.file_path)
+
+
+if __name__ == "__main__":
+    cv = Configuration()
+    cv.run()
