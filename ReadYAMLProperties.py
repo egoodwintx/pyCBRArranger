@@ -21,11 +21,11 @@ class Configuration:
         self.archivedirStr = config['archivetype']
         
         # define the compression types
-        self.cb7 = config["CB7"]
-        self.cba = config["CBA"]
-        self.cbt = config["CBT"]
-        self.cbz = config["CBZ"]
-        self.cbr = config["CBR"]
+        self.cb7 = config['CB7']
+        self.cba = config['CBA']
+        self.cbt = config['CBT']
+        self.cbz = config['CBZ']
+        self.cbr = config['CBR']
     
     # Return a configuration value
     def get_property(self, property_name):
