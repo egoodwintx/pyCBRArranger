@@ -3,3 +3,11 @@
 
 tempdir: "/var/tmp/cbarranger/" # where to do temporary work on CBR files
 archivetype: "CBZ"  # what type of file to output
+
+compressionType:
+  
+    CBZ: "/usr/bin/zip"
+    CBR: "/usr/bin/rar"
+    CBT: "/usr/bin/tar"
+    CBA: "Not defined"
+    CB7: "Not defined"
