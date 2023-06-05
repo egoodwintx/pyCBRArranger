@@ -44,9 +44,9 @@ canvas.pack()
 filedir = "/home/egoodwin/src/data/"
 # Load thumbnail images
 thumbnails = [
-    filedir + "AlphaFlight-078-00.jpg",
-    filedir + "AlphaFlight-078-02.jpg",
-    filedir + "AlphaFlight-078-01.jpg"
+    Image.open(filedir + "AlphaFlight-078-00.jpg"),
+    Image.open(filedir + "AlphaFlight-078-01.jpg"),
+    Image.open(filedir + "AlphaFlight-078-02.jpg")
 ]
 
 # Display the thumbnails in a grid
@@ -58,17 +58,16 @@ padding = 10
 row = 0
 column = 0
 
-for thumbnail in thumbnails:
-    image = Image.open(thumbnail)
+for images in thumbnails:
     thumbsize = (thumbnail_height, thumbnail_width)
-    imgthumb = image.thumbnail(thumbsize)
+    imgthumb = images.thumbnail(thumbsize)
 
-    image = ImageTk.PhotoImage(image)
+    img = ImageTk.PhotoImage(images)
     canvas.create_image(
         column * (thumbnail_width + padding),
         row * (thumbnail_height + padding),
         anchor=tk.NW,
-        image=image
+        image=img
     )
     
     column += 1
