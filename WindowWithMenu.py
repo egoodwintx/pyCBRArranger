@@ -1,4 +1,6 @@
 import tkinter as tk
+from PIL import ImageTk, Image
+
 from tkinter import messagebox, filedialog
 
 def open_file():
@@ -16,7 +18,7 @@ def about():
 
 # Create the main window
 window = tk.Tk()
-window.title("Menu and Gallery Example")
+window.title("CBArranger Gallery View")
 
 # Create the menu bar
 menu_bar = tk.Menu(window)
@@ -39,13 +41,12 @@ help_menu.add_command(label="About", command=about)
 canvas = tk.Canvas(window, width=500, height=400)
 canvas.pack()
 
+filedir = "/home/egoodwin/src/data/"
 # Load thumbnail images
 thumbnails = [
-    "thumbnail1.jpg",
-    "thumbnail2.jpg",
-    "thumbnail3.jpg",
-    "thumbnail4.jpg",
-    "thumbnail5.jpg"
+    filedir + "AlphaFlight-078-00.jpg",
+    filedir + "AlphaFlight-078-02.jpg",
+    filedir + "AlphaFlight-078-01.jpg"
 ]
 
 # Display the thumbnails in a grid
@@ -58,7 +59,11 @@ row = 0
 column = 0
 
 for thumbnail in thumbnails:
-    image = tk.PhotoImage(file=thumbnail).subsample(2)
+    image = Image.open(thumbnail)
+    thumbsize = (thumbnail_height, thumbnail_width)
+    imgthumb = image.thumbnail(thumbsize)
+
+    image = ImageTk.PhotoImage(image)
     canvas.create_image(
         column * (thumbnail_width + padding),
         row * (thumbnail_height + padding),
