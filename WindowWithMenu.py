@@ -14,7 +14,7 @@ def save_file():
         messagebox.showinfo("Save File", f"Saved file: {filepath}")
 
 def about():
-    messagebox.showinfo("About", "This is a sample program.")
+    messagebox.showinfo("About", "CBR Arranger v0.1\nDeveloped by Ed Goodwin, 2023")
 
 # Create the main window
 window = tk.Tk()
