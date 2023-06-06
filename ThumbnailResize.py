@@ -3,11 +3,12 @@ from PIL import Image, ImageTk
 
 def show_full_image(image_path):
     # Open the full-resolution image
-    full_image = Image.open(image_path)
+    filedir = "/home/egoodwin/src/data/"
+    full_image = Image.open(filedir + "AlphaFlight-078-00.jpg")
 
     # Create a new window for displaying the full-resolution image
     window = Toplevel()
-    window.title("Full Resolution Image")
+    window.title("Full page")
 
     # Display the full-resolution image
     full_image_tk = ImageTk.PhotoImage(full_image)
@@ -45,4 +46,6 @@ def show_thumbnail(image_path):
     root.mainloop()
 
 # Usage example
-show_thumbnail("path/to/thumbnail.jpg")
+
+img_file = "/home/egoodwin/src/data/AlphaFlight-078-00.jpg"
+show_thumbnail(img_file)
