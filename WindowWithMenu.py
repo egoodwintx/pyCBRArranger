@@ -42,32 +42,38 @@ canvas = tk.Canvas(window, width=500, height=400)
 canvas.pack()
 
 filedir = "/home/egoodwin/src/data/"
-# Load thumbnail images
-thumbnails = [
-    Image.open(filedir + "AlphaFlight-078-00.jpg"),
-    Image.open(filedir + "AlphaFlight-078-01.jpg"),
-    Image.open(filedir + "AlphaFlight-078-02.jpg")
-]
 
-# Display the thumbnails in a grid
+# Set up gallery dimensions for grid
 num_columns = 3
 thumbnail_width = 100
 thumbnail_height = 100
 padding = 10
 
+# Load thumbnail images
+thumbsize = (thumbnail_height, thumbnail_width)
+
+pages = [
+    Image.open(filedir + "AlphaFlight-078-00.jpg"),
+    Image.open(filedir + "AlphaFlight-078-01.jpg"),
+    Image.open(filedir + "AlphaFlight-078-02.jpg")
+]
+
+pagethumbs = []
+
 row = 0
 column = 0
+for page in pages:
+    page.thumbnail(thumbsize)
+    img = ImageTk.PhotoImage(page)
+    pagethumbs.append(img)
 
-for images in thumbnails:
-    thumbsize = (thumbnail_height, thumbnail_width)
-    imgthumb = images.thumbnail(thumbsize)
-
-    img = ImageTk.PhotoImage(images)
+for thumbnail in pagethumbs:
+    
     canvas.create_image(
         column * (thumbnail_width + padding),
         row * (thumbnail_height + padding),
         anchor=tk.NW,
-        image=img
+        image=thumbnail
     )
     
     column += 1
