@@ -4,7 +4,7 @@ import yaml
 
 class Configuration:
     # set up default class members
-    file_path = 'cbrProperties.yaml'
+    file_path = './cbrProperties.yaml'
     tempdirStr = ""
     archivedirStr = ""
     cb7 = ""
@@ -14,8 +14,8 @@ class Configuration:
     cbt = ""
 
     # Access configuration properties
-    def read_config(self, file_path):
-        with open(file_path, 'r') as file:
+    def read_config(self):
+        with open(self.file_path, 'r') as file:
             config = yaml.safe_load(file)
         self.tempdirStr = config['tempdir']
         self.archivedirStr = config['archivetype']
@@ -43,10 +43,3 @@ class Configuration:
                     "cbt" : self.cbt,
                     "cb7" : self.cb7
                 }
-            
-    def __init__(self) -> None:
-        self.read_config(self.file_path)
-
-
-if __name__ == "__main__":
-    cv = Configuration()
